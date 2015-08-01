@@ -1,14 +1,22 @@
-package blackjackHomeTask.server;
+package blackjack.cards;
 
 import java.util.LinkedList;
 
 /**
- * Created by Gene on 7/31/2015.
+ * Represents special device called shoe, which holds several card decks inside it.
+ * In fact, it's just a card deck with bigger cards capacity.
+ * @author yevhen bilous
  */
-class Shoe extends Deck {
+public class Shoe extends Deck {
 
     private final int decksCount;
 
+    /**
+     * Allows to create shoe with as many cards in it, as needed.
+     *
+     * @param decksCount number of decks on shoe
+     * @param shuffle    shuffle of not to shuffle initial card set
+     */
     public Shoe(int decksCount, boolean shuffle) {
         this.decksCount = decksCount;
         cards = new LinkedList<Card>();
@@ -19,9 +27,12 @@ class Shoe extends Deck {
                 }
             }
         }
-        if(shuffle) shuffle();
+        if (shuffle) shuffle();
     }
 
+    /**
+     * Basic constructor creates shoe which contains 6 decks (standard decision in casino) and shuffles cards.
+     */
     public Shoe() {
         this(6, true);
     }
